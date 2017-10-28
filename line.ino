@@ -1,4 +1,5 @@
 #include "line.h"
+#include "movements.h"
 
 //Фунции чтения ИК-датчиков линии
 #define GET_LEFT_IR() digitalRead(LEFT_IR_PIN)
@@ -11,7 +12,6 @@
 State rideOnLine(State currentState) {
     int IR_R = GET_RIGHT_IR();
     int IR_L = GET_LEFT_IR();
-
 
     // если правый видит черное
     if (IR_L == 0 && IR_R == 1) {
