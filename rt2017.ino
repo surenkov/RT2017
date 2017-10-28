@@ -1,4 +1,5 @@
 #include "consts.h"
+#include "color.h"
 #include "line.h"
 #include "hill.h"
 #include "ring.h"
@@ -24,9 +25,14 @@ void setup() {
     pinMode(BIN2, OUTPUT);
 
     pinMode(STBY, OUTPUT);
+
+    apds.init();
+    apds.enableLightSensor(false);
+    delay(500);
 }
 
 auto currentState = State::LINE;
 void loop() {
     currentState = transitionTable(currentState);
+    Serial.print(int(getColor()));
 }

@@ -26,3 +26,12 @@ enum class State {
     RING,
     FINAL,
 };
+
+enum class Color {
+    BLACK = 0,
+    WHITE = 1,
+    GREEN = 2,
+    YELLOW = 3,
+    VIOLET = 4,
+    RED = 5,
+};
