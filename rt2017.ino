@@ -1,4 +1,4 @@
-#include "state.h"
+#include "consts.h"
 #include "line.h"
 #include "hill.h"
 #include "ring.h"
@@ -13,6 +13,17 @@ State transitionTable(State currentState) {
 }
 
 void setup() {
+    Serial.begin(9600);
+
+    pinMode(PWMA, OUTPUT);
+    pinMode(AIN1, OUTPUT);
+    pinMode(AIN2, OUTPUT);
+
+    pinMode(PWMB, OUTPUT);
+    pinMode(BIN1, OUTPUT);
+    pinMode(BIN2, OUTPUT);
+
+    pinMode(STBY, OUTPUT);
 }
 
 auto currentState = State::LINE;

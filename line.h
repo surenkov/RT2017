@@ -1,4 +1,4 @@
 #pragma once
-#include "state.h"
+#include "consts.h"
 
 State rideOnLine(State currentState);
