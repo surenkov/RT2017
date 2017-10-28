@@ -1,5 +1,4 @@
+#pragma once
 #include "state.h"
 
-State winTheFight(State currentState) {
-    return State::RING;
-}
+State winTheFight(State currentState);

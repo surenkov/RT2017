@@ -1,5 +1,4 @@
+#pragma once
 #include "state.h"
 
-State rideOnLine(State currentState) {
-    return State::LINE;
-}
+State rideOnLine(State currentState);
