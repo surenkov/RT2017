@@ -18,11 +18,10 @@ State rideOnLine(State currentState) {
         moveLeftForward(SPEED_ZERO);
         moveRightForward(SPEED_HIGH);
     }
-
     // если левый видит черное
     else if (IR_L == 1 && IR_R == 0) {
-        moveLeftBackwards(SPEED_MID);
-        moveRightForward(SPEED_HIGH);
+        moveLeftForward(SPEED_HIGH);
+        moveRightForward(SPEED_ZERO);
     }
 
     // если оба видят белое

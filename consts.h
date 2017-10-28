@@ -1,17 +1,19 @@
 #pragma once
 
 //ИК датчики
-#define LEFT_IR_PIN 7
-#define RIGHT_IR_PIN 11
+#define LEFT_IR_PIN 11
+#define RIGHT_IR_PIN 10
 
 //Драйвер моторов
-#define AIN1 3
-#define AIN2 2
+#define AIN1 7
+#define AIN2 4
 #define BIN1 9
 #define BIN2 8
-#define PWMA 6
+#define PWMA 3
 #define PWMB 5
+
 #define STBY 12
+#define SERVO_PWM 6
 
 #define SWAP_INT(A, B) \
     ((A) ^= (B)); \
