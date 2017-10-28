@@ -34,5 +34,5 @@ void setup() {
 auto currentState = State::LINE;
 void loop() {
     currentState = transitionTable(currentState);
-    Serial.print(int(getColor()));
+    Serial.println(int(getColor()));
 }

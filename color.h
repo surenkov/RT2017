@@ -6,108 +6,28 @@
 
 SparkFun_APDS9960 apds = SparkFun_APDS9960();
 
-inline int colorTree(float ambient, float green, float blue) {
-  if (ambient <= 4.074999809265137) {
-    if (blue <= 0.36413997411727905) {
-      if (ambient <= 2.0850000381469727) {
-        if (green <= 0.0031049998942762613) {
-          return 5;
-        } else { // if green > 0.0031049998942762613
-          if (green <= 113.96139526367188) {
-            if (green <= 57.47780990600586) {
-              if (blue <= 0.004664999898523092) {
-                if (green <= 1.993575096130371) {
-                  return 1;
-                } else { // if green > 1.993575096130371
-                  if (green <= 8.675785064697266) {
-                    return 4;
-                  } else { // if green > 8.675785064697266
-                    return 3;
-                  }
-                }
-              } else { // if blue > 0.004664999898523092
-                return 0;
-              }
-            } else { // if green > 57.47780990600586
-              return 2;
-            }
-          } else { // if green > 113.96139526367188
-            if (green <= 140.12652587890625) {
+inline int colorTree(int ambient, int red, int green, int blue) {
+  if (ambient <= 1664.5) {
+    if (red <= 344.5) {
+      if (green <= 305.0) {
+        if (red <= 166.0) {
+          if (ambient <= 363.0) {
               return 0;
-            } else { // if green > 140.12652587890625
+            } else {
               return 4;
-            }
-          }
-        }
-      } else { // if ambient > 2.0850000381469727
-        if (blue <= 0.0034650000743567944) {
-          return 0;
-        } else { // if blue > 0.0034650000743567944
-          return 3;
-        }
-      }
-    } else { // if blue > 0.36413997411727905
-      if (green <= 0.4777649939060211) {
-        if (blue <= 0.5720199942588806) {
-          if (ambient <= 2.9049999713897705) {
-            if (ambient <= 1.2899999618530273) {
-              if (green <= 0.25987499952316284) {
-                return 4;
-              } else { // if green > 0.25987499952316284
-                if (blue <= 0.4436299800872803) {
-                  return 0;
-                } else { // if blue > 0.4436299800872803
-                  return 3;
-                }
-              }
-            } else { // if ambient > 1.2899999618530273
-              return 5;
-            }
-          } else { // if ambient > 2.9049999713897705
-            return 0;
-          }
-        } else { // if blue > 0.5720199942588806
-          return 4;
-        }
-      } else { // if green > 0.4777649939060211
-        if (green <= 0.7441450357437134) {
-          if (green <= 0.516539990901947) {
-            return 2;
-          } else { // if green > 0.516539990901947
-            if (green <= 0.5243300199508667) {
-              return 4;
-            } else { // if green > 0.5243300199508667
-              if (blue <= 0.4432550072669983) {
-                return 3;
-              } else { // if blue > 0.4432550072669983
-                return 2;
-              }
-            }
-          }
-        } else { // if green > 0.7441450357437134
-          if (ambient <= 0.75) {
-            return 4;
-          } else { // if ambient > 0.75
-            if (ambient <= 2.129999876022339) {
-              return 0;
-            } else { // if ambient > 2.129999876022339
-              return 3;
-            }
-          }
-        }
-      }
-    }
-  } else { // if ambient > 4.074999809265137
-    if (ambient <= 24.10999870300293) {
-      return 1;
-    } else { // if ambient > 24.10999870300293
-      if (blue <= 0.013659999705851078) {
-        return 4;
-      } else { // if blue > 0.013659999705851078
+            } // end else
+          } else {
+            return 5;
+          } // end else
+        } else {
+          return 2;
+        } // end else
+      } else {
         return 3;
-      }
-    }
-  }
+      } // end else
+    } else {
+      return 1;
+    }// end else
 }
 
 inline Color getColor() {
@@ -121,10 +41,5 @@ inline Color getColor() {
     apds.readGreenLight(green_light);
     apds.readBlueLight(blue_light);
 
-    float red = red_light;
-    return Color(colorTree(
-        ambient_light / red,
-        green_light / red,
-        blue_light / red
-    ));
+    return Color(colorTree(ambient_light, red_light, green_light, blue_light));
 }

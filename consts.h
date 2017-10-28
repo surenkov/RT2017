@@ -28,8 +28,8 @@ enum class State {
 };
 
 enum class Color {
-    BLACK = 0,
-    WHITE = 1,
+    BLACK = 1,
+    WHITE = 0,
     GREEN = 2,
     YELLOW = 3,
     VIOLET = 4,
